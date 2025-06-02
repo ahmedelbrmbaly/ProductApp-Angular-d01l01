@@ -1,0 +1,139 @@
+:root {
+  --primary-dark: #112D4E;
+  --primary-blue: #3F72AF;
+  --light-blue: #DBE2EF;
+  --light-bg: #F9F7F7;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-dark);
+  color: var(--light-blue);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--primary-dark);
+}
+
+/* Card styling */
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  background-color: var(--primary-blue);
+  color: var(--light-bg);
+}
+
+.card-header {
+  background-color: rgba(17, 45, 78, 0.85);
+  color: var(--light-blue);
+  border-bottom: 1px solid var(--light-blue);
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: var(--light-bg);
+  border-color: var(--light-bg);
+  color: var(--primary-dark);
+}
+
+/* Navbar and footer */
+.bg-dark, .navbar-dark {
+  background-color: var(--primary-dark) !important;
+  border-bottom: 1px solid var(--primary-blue);
+}
+
+.text-light {
+  color: var(--light-blue) !important;
+}
+
+/* Alert styling */
+.alert-info {
+  background-color: var(--primary-blue);
+  color: var(--light-bg);
+  border-color: var(--light-blue);
+}
+
+/* Form elements */
+.form-control, .form-select {
+  background-color: rgba(17, 45, 78, 0.8);
+  border: 1px solid var(--light-blue);
+  color: var(--light-blue);
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: var(--primary-dark);
+  border-color: var(--light-blue);
+  box-shadow: 0 0 0 0.2rem rgba(219, 226, 239, 0.15);
+  color: var(--light-blue);
+}
+
+.form-label {
+  color: var(--light-blue);
+}
+
+/* Badge styling */
+.badge.bg-secondary {
+  background-color: var(--light-blue) !important;
+  color: var(--primary-dark) !important;
+}
+
+/* Product card specific */
+.card-img-top-container {
+  background-color: var(--primary-dark);
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+/* Headings and links */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--light-bg);
+}
+
+p, a, .nav-link, .navbar-brand {
+  color: var(--light-blue);
+}
+
+a:hover, .nav-link.active {
+  color: var(--light-bg);
+}
+
+hr {
+  border-color: var(--light-blue);
+  opacity: 0.2;
+}
+
+/* White placeholders for filter inputs */
+.form-control::placeholder,
+.form-select::placeholder {
+  color: #fff !important;
+  opacity: 1;
+}
+
+/* Enhanced Reset button styling */
+.btn-reset {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-reset:hover {
+  background-color: #c82333;
+  color: #fff;
+  border-color: #c82333;
+}

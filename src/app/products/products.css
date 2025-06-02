@@ -1,0 +1,52 @@
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.badge {
+  font-size: 0.8em;
+}
+
+.card-img-top-container {
+  height: 200px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top-container img[src*="placeholder"] {
+  opacity: 0.6;
+  background-color: #e9ecef;
+}
+
+.low-stock {
+  background-color: #ffffff;
+  color: #c82333; /* Slightly darker, richer red for better emphasis */
+}
+
+.medium-stock {
+  background-color: #ffffff;
+  color: #e0a800; /* Deeper, more readable amber for medium urgency */
+}
+
+.high-stock {
+  background-color: #ffffff;
+  color: #218838; /* Slightly darker green for improved contrast and clarity */
+}
