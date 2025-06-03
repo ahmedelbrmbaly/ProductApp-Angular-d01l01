@@ -1,29 +1,31 @@
 <div class="container my-5">
   <h2 class="text-center mb-4">Our Products</h2>
 
-  <!-- Total Products Display -->
+  <!-- Shows the total number of products currently displayed -->
   <div class="alert alert-info text-center">
     <strong>Total Products: {{ products.length }}</strong>
   </div>
 
-  <!-- Filter Form -->
+  <!-- Filter Form: Allows users to filter products by category, title, or price -->
   <div class="card mb-4">
     <div class="card-header">
       <h5>Filter Products</h5>
     </div>
     <div class="card-body">
       <form class="row g-3">
+        <!-- Category Dropdown Filter -->
         <div class="col-md-4">
           <label for="categoryFilter" class="form-label">Category</label>
-
           <select class="form-select" id="categoryFilter"
                   [(ngModel)]="filterValues.category"
                   name="category"
                   (change)="updateFilterDisplay()">
             <option value="">All</option>
+            <!-- Display each category name, but use the slug as the value -->
             <option *ngFor="let cat of categories" [value]="cat.slug">{{ cat.name }}</option>
           </select>
         </div>
+        <!-- Product Title Filter -->
         <div class="col-md-4">
           <label for="titleFilter" class="form-label">Product Title</label>
           <input type="text" class="form-control" id="titleFilter"
@@ -32,6 +34,7 @@
                  name="title"
                  (input)="updateFilterDisplay()">
         </div>
+        <!-- Max Price Filter -->
         <div class="col-md-4">
           <label for="priceFilter" class="form-label">Max Price ($)</label>
           <input type="number" class="form-control" id="priceFilter"
@@ -40,17 +43,18 @@
                  name="maxPrice"
                  (input)="updateFilterDisplay()">
         </div>
-       <!-- Update in the form inside Filter Form section -->
+        <!-- Filter and Reset Buttons -->
         <div class="col-12">
           <div class="d-flex gap-2">
             <button type="button" class="btn btn-primary flex-grow-1" (click)="filterProducts()">Apply</button>
-            <button type="button" class="btn btn-reset" (click)="resetFilters()">Reset</button>             </div>
+            <button type="button" class="btn btn-reset" (click)="resetFilters()">Reset</button>
+          </div>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Current Filter Values Display -->
+  <!-- Shows the current filter values for demonstration purposes -->
   <div class="card mb-4">
     <div class="card-header">
       <h6>Current Filter Values</h6>
@@ -70,26 +74,29 @@
     </div>
   </div>
 
-  <!-- Product List  -->
+  <!-- Product List: Displays each product as a card -->
   <div class="row">
     <h4 class="mb-3">Product List</h4>
     <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of products">
       <div class="card h-100">
-        <!-- Product Image Section -->
+        <!-- Product Image -->
         <div class="card-img-top-container">
-         <!-- Change product.image to product.thumbnail in the img tag -->
-        <img [src]="product.thumbnail"
-             [alt]="product.title"
-             class="card-img-top product-image">
+          <!-- Uses the product's thumbnail image -->
+          <img [src]="product.thumbnail"
+               [alt]="product.title"
+               class="card-img-top product-image">
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{ product.title }}</h5>
           <p class="card-text">
+            <!-- Shows the product's category as a badge -->
             <span class="badge bg-secondary mb-2">{{ product.category }}</span><br>
             <strong>Price: </strong> ${{ product.price }}<br>
             <strong>Stock: </strong>
+            <!-- Stock level is color-coded using getStockClass() -->
             <span [class]="getStockClass(product.stock)">{{ product.stock }} units</span>
           </p>
+          <!-- Add to Cart button (not yet functional) -->
           <button class="btn btn-primary mt-auto">Add to Cart</button>
         </div>
       </div>

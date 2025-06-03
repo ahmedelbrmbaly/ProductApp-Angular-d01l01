@@ -1,47 +1,36 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {catchError, Observable, throwError} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
 import { ProductResponse } from '../models/response/product-response-module';
 import { CategoryResponse } from '../models/response/category-response-module';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // This service is available app-wide
 })
 export class Product {
 
-  // inject HttpClient
+  // Injects Angular's HttpClient for making HTTP requests
   constructor(private http: HttpClient) { }
 
-
-  // Method to fetch products from https://dummyjson.com/products
-
+  // Fetches the list of products from the API
   getProducts(): Observable<ProductResponse> {
     return this.http.get<ProductResponse>('https://dummyjson.com/products').pipe(
       catchError((error) => {
-        // handle error as needed, e.g., log or transform
+        // Logs any errors to the console and rethrows them
         console.error('Error fetching products:', error);
         return throwError(() => error);
       })
     );
   }
 
-    // Method to fetch categories from https://dummyjson.com/products/categories
-
+  // Fetches the list of categories from the API
   getCategories(): Observable<CategoryResponse> {
     return this.http.get<CategoryResponse>('https://dummyjson.com/products/categories').pipe(
       catchError((error) => {
+        // Logs any errors to the console and rethrows them
         console.error('Error fetching categories:', error);
         return throwError(() => error);
       })
     );
   }
-
-
-
-
-
-
-
-
 }
